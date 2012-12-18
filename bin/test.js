@@ -3,4 +3,5 @@ var BC = require(__dirname + '/../lib/bc')
 
 var d = new Dir(BC.Cfg.paths.content);
 d.read();
-d._dbg_dump();
+
+console.log(d.get_page('index').read());
