@@ -1,0 +1,19 @@
+{
+  "name": "banksco.de",
+  "version": "0.1.0",
+  "private": "true",
+  "description": "Simple static file CMS",
+  "author": "Paul Banks <banks@banksdesigns.co.uk>",
+  "dependencies": {
+    "mu2": "0.5.x",
+    "marked": "0.2.x",
+    "highlight": "0.2.x",
+    "moment": "1.7.2",
+    "rss": "0.0.4",
+    "restify": "1.4.x",
+    "underscore": "1.4.x",
+    "js-yaml": "1.0.x",
+    "yaml-front-matter": "1.0.x"
+  },
+  "engine": "node 0.8.x"
+}
