@@ -1,5 +1,5 @@
 var BC = require(__dirname + '/../lib/bc')
-    ,Dir = require(BC.Cfg.paths.lib+'/bc/dir').ContentDir;
+    ,Dir = BC.require('bc/content/dir').ContentDir;
 
 var d = new Dir(BC.Cfg.paths.content);
 d.read();
