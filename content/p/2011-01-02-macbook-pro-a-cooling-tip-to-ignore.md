@@ -1,5 +1,5 @@
 ---
-title: MacBook Pro: a cooling tip to ignore
+title: "MacBook Pro: a cooling tip to ignore"
 ---
 **My main machine these days is still my trusty four-year-old MacBook Pro. I've used it with the battery removed for a while to reduce heat and fan noise when in desktop use. Turns out to be a terrible idea. **
 

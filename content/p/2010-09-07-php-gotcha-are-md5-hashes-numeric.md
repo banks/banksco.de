@@ -1,5 +1,5 @@
 ---
-title: PHP Gotcha: are MD5 hashes numeric?
+title: "PHP Gotcha: are MD5 hashes numeric?"
 ---
 **A bizarre bug just came up at work: a query in a cron script failed last night for no apparent reason even though thousands of queries are run by the same bit of code every day. The reason: an MD5 hash being incorrectly identified as a number in exponential form.**
 

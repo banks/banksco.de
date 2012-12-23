@@ -1,8 +1,6 @@
 ---
-title: Test Index File
-blah: OK then
+title: Second one
 template: blog_index.mu
-layout_title_prefix: "INDEX: " 
 ---
 **some markedown** content
 

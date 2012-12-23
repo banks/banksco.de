@@ -1,5 +1,5 @@
 ---
-title: More from MIT: Red-Black Trees are Cool
+title: "More from MIT: Red-Black Trees are Cool"
 ---
 **I mentioned [a while back](http://blog.banksdesigns.co.uk/post/go-back-to-uni-at-google) that I had found the lecture videos and notes for MIT's Introduction to algorithms course on [Peter Krumins' blog](http://www.catonmat.net/series/mit-introduction-to-algorithms). I'm still watching them, and they keep getting better.**
 

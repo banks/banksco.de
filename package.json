@@ -5,7 +5,7 @@
   "description": "Simple static file CMS",
   "author": "Paul Banks <banks@banksdesigns.co.uk>",
   "dependencies": {
-    "mu2": "0.5.x",
+    "handlebars": "1.0.x",
     "marked": "0.2.x",
     "highlight": "0.2.x",
     "moment": "1.7.2",
@@ -13,7 +13,8 @@
     "restify": "1.4.x",
     "underscore": "1.4.x",
     "js-yaml": "1.0.x",
-    "yaml-front-matter": "1.0.x"
+    "yaml-front-matter": "1.0.x",
+    "q": "0.8.x"
   },
   "engine": "node 0.8.x"
 }

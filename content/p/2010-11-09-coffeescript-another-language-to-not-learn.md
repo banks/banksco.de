@@ -1,5 +1,5 @@
 ---
-title: CoffeeScript: another language to not learn
+title: "CoffeeScript: another language to not learn"
 ---
 **My attention was drawn to [CoffeeScript](http://jashkenas.github.com/coffee-script/) recently. I really like it, I think the author has made some changes that *if* they were part of javascript proper would make it somewhat nicer to work with. But it is completely pointless.**
 

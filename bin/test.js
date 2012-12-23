@@ -1,7 +1,8 @@
 var BC = require(__dirname + '/../lib/bc')
-    ,Dir = BC.require('bc/content/dir').ContentDir;
+    ,Content = BC.require('bc/content').Content;
 
-var d = new Dir(BC.Cfg.paths.content);
-d.read();
+Content.get('/index?test=foo&asd=dfg').write_file();
 
-console.log(d.get_page('index').read());
+//d.get_dir('p').get_pages('date', 1, 0)[0].read().write_file();
+
+console.log(require('fs').readFileSync(BC.Cfg.paths.www + '/index.html', 'utf-8'));
