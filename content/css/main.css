@@ -1,0 +1,460 @@
+/** 
+ * Yes this is not ideal as it prevents downloading fonts in parallel with this CSS but
+ * that's not such a big deal on such a simple site and this method massively simplified
+ * packaging the style for previewing in editor etc.
+ */
+@import url(//fonts.googleapis.com/css?family=Buenard:400,700|Signika:300);
+
+body {
+	font-family: 'Buenard', serif;
+	font-size: 20px;
+	color: #333;
+	background-color: #f5f5f5;
+	margin: 0;
+	padding: 0;
+}
+
+#content {
+	width: 700px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#logo {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 0.8em;
+	opacity: 0.5;
+	z-index: 10;
+	cursor: pointer;
+	overflow: hidden;
+	width: 178px;
+}
+#logo a {
+	text-decoration: none;
+}
+#logo span {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 16px;
+	height: 40px;
+	background-color: #444;
+	color: #fff;
+	padding: 0 12px;
+	font-size: 0.8em;
+	font-style: italic;
+}
+#logo #about {
+	background-color: rgba(255,255,255,0.9);
+	padding: 0 10px 10px;
+	margin: 0 0 0 42px;
+	width: 400px;
+	position: relative;
+}
+#logo.open #about {
+	background-color: rgba(255,255,255,1);
+}
+#logo h2 {
+	margin: 0;
+	display: block;
+}
+#logo h2 a,
+#logo h2 a:link,
+#logo h2 a:visited,
+#logo h2 a:active,
+#logo h2 a:hover {
+	color: #444;
+}
+#logo #about p {
+	margin: 8px 0;
+	line-height: 1.2em;
+}
+#logo a.close {
+	position: absolute;
+	right: 10px;
+	top: 3px;
+}
+a.close {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.5em;
+	line-height: 1em;
+	font-weight: bold;
+	color: #444;
+}
+a.close:hover {
+	color: #999;
+}
+
+article {
+	margin: 120px auto;
+	line-height: 1.5em;
+}
+
+article header {
+	position: relative;
+}
+
+article h1 {
+	font-size: 3em;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+	line-height: 1em;
+}
+article h1 a,
+article h1 a:link,
+article h1 a:active,
+article h1 a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+article header .post_meta {
+	border-top: 1px solid #e5e5e5;
+	padding: 4px 0 2px;
+	color: #999;
+	font-family: 'Signika', sans-serif;
+	font-weight: 300;
+	font-size: 0.8em;
+}
+article header .post_meta time {
+	float: right;
+}
+article header .post_meta span {
+	opacity: 0.7;
+}
+article header .post_meta:hover span {
+	opacity: 1;
+}
+
+footer {
+	margin: 50px 0 100px;
+}
+
+div.comments a.comment_link {
+	text-align: center;
+	margin: 0 auto 30px;
+	display: block;
+	font-size: 0.8em;
+	height: 1.5em;
+}
+
+footer div.arrows {
+	border-top: 1px solid #e5e5e5;
+	padding: 30px 0 20px;
+}
+div.arrows a {
+	width: 290px;
+	color: #666;
+	font-size: 1.1em;
+	display: table-cell;
+	vertical-align: middle;
+	text-decoration: none;
+	position: relative;
+}
+div.arrows a.prev {
+	padding-left: 60px;
+}
+div.arrows a.next {
+	text-align: right;
+	padding-right: 60px;
+}
+div.arrows a span,
+div.nav a span {
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+	background-color: #999;
+	color: #fff;
+	font-weight: normal;
+	opacity: 0.5;
+}
+div.arrows a span {
+	width: 10px;
+	height: 40px;
+	padding: 0 15px;
+	line-height: 32px;
+}
+div.arrows a.prev span {
+	left: 0;
+}
+div.arrows a.next span {
+	right: 0;
+}
+div.arrows a:hover {
+	color: #444;
+}
+div.arrows a:hover span {
+	background-color: #444;
+}
+div.clear {
+	clear: both;
+	height: 0;
+}
+
+footer div.about {
+	border-top: 1px solid #e5e5e5;
+	margin: 0;
+	padding: 20px;
+	font-size: 0.7em;
+	color: #888;
+	line-height: 1.2em;
+	background-color: #f2f2f2;
+}
+div.img_border {
+	padding: 2px;
+	border: 1px solid #ddd;
+	float: left;
+	height: 100px;
+	margin-right: 15px;
+}
+footer div.about h2 {
+	margin: 0;
+	color: #888;
+	font-size: 1.3em;
+}
+footer div.about h2 span {
+	font-weight: normal;
+	font-style: italic;
+	color: #999;
+	font-size: 0.8em;
+}
+footer div.about p {
+	margin: 1em 0 1em 121px;
+}
+footer div.nav {
+	padding: 20px 0;
+	text-align: center;
+}
+div.nav a {
+	padding-left: 30px;
+	display: inline-block;
+	margin: 0 1em;
+	position: relative;
+	color: #999;
+	text-decoration: none;
+	font-size: 0.8em;
+}
+div.nav a span {
+	width: 22px;
+	height: 22px;
+	margin-top: -11px;
+	left: 0;
+}
+div.nav a.archive span {
+	background: #444 url(/img/archive.png) no-repeat center center;
+}
+div.nav a.rss span {
+	background: #444 url(/img/rss.png) no-repeat center center;
+}
+div.nav a:hover {
+	color: #444;
+}
+div.nav a:hover span {
+	opacity: 0.99;
+}
+
+
+a,
+a:link,
+a:active,
+a:visited {
+	color: #26a;
+}
+
+a:hover {
+	color: #48c;
+}
+
+/**
+ * CODE and highlighting
+ * based on github.com style (c) Vasily Polovnyov <vast@whiteants.net> from Highlight.js
+ */
+
+code {
+	font-family: 'Monaco', 'Courier New', sans-serif;
+	font-size: 0.7em;
+	border: 1px solid #ddd;
+	padding: 2px 5px;
+	background-color: #f8f8f8;
+	color: #555;
+}
+pre {
+	border: 1px solid #ddd;
+	padding: 15px;
+	background-color: #f8f8f8;
+	line-height: 1.2em;
+  	overflow: auto;
+}
+pre code {
+	border: none;
+  	display: block;
+  	color: #000;
+  	background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  	color: #998;
+  	font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+  	color: #000;
+  	font-weight: bold
+}
+
+pre .number,
+pre .hexcolor {
+  	color: #40a070
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  	color: #d14
+}
+
+pre .title,
+pre .id {
+  	color: #900;
+  	font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+  	font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .label,
+pre .tex .command {
+  	color: #458;
+  	font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  	color: #000080;
+  	font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .instancevar,
+pre .lisp .body {
+  	color: #008080
+}
+
+pre .regexp {
+  	color: #009926
+}
+
+pre .class {
+  	color: #458;
+  	font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
+pre .lisp .keyword,
+pre .tex .special,
+pre .input_number {
+  	color: #990073
+}
+
+pre .builtin,
+pre .built_in,
+pre .lisp .title {
+  	color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  	color: #999;
+  	font-weight: bold
+}
+
+pre .deletion {
+  	background: #fdd
+}
+
+pre .addition {
+  	background: #dfd
+}
+
+pre .diff .change {
+  	background: #0086b3
+}
+
+pre .chunk {
+  	color: #aaa
+}
+
+pre .tex .formula {
+  	opacity: 0.5;
+}
+
+/**
+ * Archive
+ */
+#content.archive {
+	padding-top: 100px;
+}
+#content.archive ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#content.archive ul li {
+	list-style: none;
+	padding: 0.5em 0 0.5em 6em;
+}
+#content.archive ul li span {
+	width: 3em;
+	text-align: right;
+	display: inline-block;
+	margin-right: 1em;
+	font-weight: bold;
+}
+#content.archive h2 {
+	margin: 1em 0 0;
+}
+span.month {
+	float: left;
+	margin: 0.5em 0;
+	color #666;
+}
+
+/**
+ * Errors
+ */
+#content.error {
+	text-align: center;
+}
+#content.error h1 span {
+	color: #999;
+	font-size: 5em;
+	display: block;
+}

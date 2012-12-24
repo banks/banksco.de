@@ -12,4 +12,3 @@ That's not really much of a criticism though and I think at least some of that w
 I'll certainly keep working with Ruby and probably rails - there is something so elegant about the language that it makes going back to PHP a little disappointing. Who knows, one day I might be completely converted.
 
 Expect me to post my web-related discoveries and opinions here in the future.
-
