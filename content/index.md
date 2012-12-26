@@ -1,9 +1,4 @@
 ---
-title: Test Index File
-blah: OK then
+title: Thoughts on Web Development by Paul Banks
 template: blog_index.mu
-layout_title_prefix: "INDEX: " 
 ---
-**some markedown** content
-
-for this great. File.

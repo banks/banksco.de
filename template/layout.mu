@@ -26,7 +26,7 @@
             <a class="close">×</a>
         </div>
     </div>
-    <div id="content">
+    <div id="content" {{#if layout_content_class}}class="{{layout_content_class}}"{{/if}}>
         {{{ layout_content }}}
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

@@ -1,4 +1,10 @@
-<h1>{{title}}}</h1>
-{{#pages '/p/?type=date'}}
-    <a href="{{url}}">{{title}}</a>
+{{#pages '/p/?type=date&limit=5'}}
+    <article>
+        {{> blog_post_body.mu }}
+    </article>
 {{/pages}}
+
+<footer class="page_footer">
+    {{> about.mu }}
+    {{> nav.mu }}
+</footer>

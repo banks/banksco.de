@@ -147,7 +147,8 @@ footer div.arrows {
 	border-top: 1px solid #e5e5e5;
 	padding: 30px 0 20px;
 }
-div.arrows a {
+div.arrows a,
+div.arrows div.prev_spacer {
 	width: 290px;
 	color: #666;
 	font-size: 1.1em;
@@ -156,7 +157,8 @@ div.arrows a {
 	text-decoration: none;
 	position: relative;
 }
-div.arrows a.prev {
+div.arrows a.prev,
+div.arrows div.prev_spacer {
 	padding-left: 60px;
 }
 div.arrows a.next {
