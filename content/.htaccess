@@ -8,7 +8,7 @@ RewriteCond %{HTTP_HOST} ^www\.banksco\.de$
 RewriteRule (.*)$ http://banksco.de/$1 [R=301,L]
 
 RewriteRule    ^post/(.*) 	/p/$1.html [L,R=301]
-RewriteRule    ^rss$ 		/rss.xml [L,R=301]
+RewriteRule    ^rss$ 		/blog.rss.xml [L,R=301]
 RewriteRule    ^archive$ 	/archive.html [L,R=301]
 
 ErrorDocument 400 /error/400.html
