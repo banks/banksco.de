@@ -9,21 +9,21 @@ This article is a long-and-yet-brief overview of the changes..
 
 ## Design
 
-The style just suits my tastes better. The original was much more focussed on learning Rails that the actual look of the thing became somewhat secondary. I was inspired by some very beautiful but simple and elegant sites I've seen lately and this style was the result (for now). I have dreams of adding beautiful imagery and other fancy things to some articles too but we'll see…
+The style just suits my tastes better. When I made the last version, I was much more focussed on learning Rails and the aesthetics of the site became somewhat secondary. I was inspired by some very beautiful and elegant sites I've seen recently and this design was the result (for now). I have dreams of adding beautiful imagery and other fancy things to some articles too but we'll see.
 
-Fonts are from [Google's Webfonts](http://www.google.com/webfonts) rather than [TypeKit](https://typekit.com/) free trial because there was much more freedom and no limitations without fees. I also get to download the fonts I use here for offline use.
+Fonts are from [Google's Webfonts](http://www.google.com/webfonts) rather than [TypeKit's](https://typekit.com/) free plan because there is much more freedom without fees. I also get to download the fonts I use here for offline use.
 
 ## Technology
 
-I went back to basics for this. Since I made the last version of this blog, my tastes in tech have changed a bit. I've come to value simplicity and efficiency more and more. Having a full Rails stack, web servers, proxies, databases, user authentication, SSL certificates etc suddenly seems like a really ugly solution for what is essentially a simple, static site.
+I went back to basics for this. Since I made the last version of this blog, my tastes in tech have changed a bit. I've come to value simplicity and efficiency more and more. Having a full Rails stack, web servers, proxies, database, user authentication, SSL certificates etc suddenly seems like a really ugly solution for what is essentially a simple, static site only updated by me.
 
 So this site *is* a static site.
 
-After I finished a lot of the work on this new system described below, I came across an article from a friend of mine about [his CMS solution](http://jekor.com/article/towards-a-lifelong-content-management-system). It turns out he had a lot of the same ideas and he does a great job of expressing his rationale for moving away from WordPress-like apps for CMS. I link to that now to save you from more of my words repeating many of the same things in less eloquent sentences.
+After I finished a lot of the work on this new system described below, I came across an article from a friend of mine about [his CMS solution](http://jekor.com/article/towards-a-lifelong-content-management-system). It turns out he had a lot of the same ideas and he does a great job of expressing his rationale for moving away from Wordpress-like apps for CMS. I link to that now to save you from more clumsy words from me repeating many of the same things less eloquently.
 
 ## Managing Static Content
 
-So this site is just HTML files served by good old apache. Nginx probably would be my first choice on a dedicated server but I'm enjoying my current stay on [Webfaction](http://www.webfaction.com) and this is the most appropriate configuration here.
+So this site is just HTML files served by good old Apache. Nginx probably would be my first choice on a dedicated server but I'm enjoying my current stay on [Webfaction](http://www.webfaction.com) and this is the most appropriate configuration here.
 
 Managing a static site by hand is so 1990s, clearly we can do better than that.
 
