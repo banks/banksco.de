@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>{{ layout_title }}</title>
     <link href='http://fonts.googleapis.com/css?family=Buenard:400,700|Signika:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    <link rel="stylesheet" type="text/css" href="{{Cfg.site.base_url}}/css/main.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{Cfg.site.base_url}}/blog.rss.xml" />
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,6 +30,6 @@
         {{{ layout_content }}}
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="{{Cfg.site.base_url}}/js/main.js"></script>
 </body> 
 </html>
