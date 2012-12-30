@@ -2,8 +2,7 @@ RewriteEngine  on
 
 # Redirect old domain
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^blg\.banksdesigns\.co\.uk$ [OR]
-RewriteCond %{HTTP_HOST} ^blog\.banksdesigns\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^([a-z]+\.)?banksdesigns\.co\.uk$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.banksco\.de$
 RewriteRule (.*)$ http://banksco.de/$1 [R=301,L]
 
