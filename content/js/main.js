@@ -67,7 +67,9 @@ $(function(){
 	$.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
 
 	$('a.comment_link').on('click', function(){
-		$(this).remove();
-		$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js');
+		var $this = $(this);
+		$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js', function(){
+			$this.remove();
+		});
 	});
 });
