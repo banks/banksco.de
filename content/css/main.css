@@ -456,3 +456,43 @@ span.month {
 	font-size: 5em;
 	display: block;
 }
+
+/**
+ * CV
+ */
+article.cv header {
+	margin-bottom: 60px;
+}
+article.cv header .img_border {
+	float: right;
+}
+article.cv header h1 {
+	margin-bottom: 0.3em;
+}
+article.cv header h2 {
+	color: #aaa;
+	font-family: 'Signika', sans-serif;
+	font-weight: 300;
+	font-size: 1.1em;
+}
+article.cv header h2 span {
+	color: #ccc;
+}
+article.cv h3 {
+	font-size: 1.3em;
+}
+dt {
+	font-weight: bold;
+	font-size: 1.1em;
+	color: #555;
+}
+dd {
+	font-size: 0.9em;
+}
+span.date-range {
+	color: #999;
+	font-weight: 300;
+	display: block;
+	font-family: 'Signika', sans-serif;
+	font-size: 0.7em;
+}

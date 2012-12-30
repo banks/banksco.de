@@ -1,6 +1,6 @@
 <div class="about">
 	<div class="img_border">
-		<img class="avatar" src="/img/avatar.jpg" width="100" height="100">
+		<img class="avatar" src="/img/avatar.jpg" width="100" height="100" alt="Photo of Paul Banks">
 	</div>
 	<h2><span>by</span> Paul Banks</h2>
 	<p>
@@ -11,7 +11,7 @@
 	</p>
 	<p>
 		For more info
-		<a href="http://www.banksdesigns.co.uk">see my CV</a> or
+		<a href="{{Cfg.site.base_url}}/cv.html">see my CV</a> or
 		<a href="http://www.github.com/banks">follow me on Github</a>.
 	</p>
 </div>

@@ -61,6 +61,11 @@ $(function(){
 		$(document).on('click', close_panel);
 	})();
 
+	$('a.email-link').each(function(){
+		var $link = $(this);
+		$link.attr('href', $link.attr('href').replace('[at]', '@').replace('[dot]', '.'));
+	});
+
 	window.disqus_shortname = 'bypaulbanks';
 
 	// Disqus comment count in links
