@@ -17,6 +17,19 @@
                         ,displayText: false
                         });
     </script>
+    {{#if custom_css}}
+    <style type="text/css">
+        {{#custom_css.title_color}}
+        article h1 a, article h1 a:link, article h1 a:active, 
+        article h1 a:visited, article h1 a:hover { color: {{this}}; }
+        {{/custom_css.title_color}}
+        {{#custom_css.link_color}}
+        article a, article a:link, article a:active, 
+        article a:visited, article a:hover { color: {{this}}; }
+        {{/custom_css.link_color}}
+        {{custom_css.css}}
+    </style>
+    {{/if}}
 </head>
 <body>
     <div id="logo">
