@@ -100,4 +100,4 @@ I would suggest that a real understanding of the strengths *and weaknesses* of e
 
 I'll say it again if Howard or anyone else who's played with LMDB would like to comment on any of these issues, I'm genuinely interested to hear.
 
-So is it a leveldb killer? I'd say it seems good, but more data required.
+So is LMDB a leveldb killer? I'd say it seems good, but more data required.
