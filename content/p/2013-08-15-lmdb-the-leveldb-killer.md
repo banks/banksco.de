@@ -1,5 +1,5 @@
 ---
-title: LMDB: the leveldb killer?
+title: "LMDB: the leveldb killer?"
 ---
 **I've been quiet for a while on this blog, busy with many projects, but I just had to comment on my recent discovery of [Lightning Memory-Mapped Database (LMDB)](http://symas.com/mdb/). It's very impressive, but left me with some questions.**
 
