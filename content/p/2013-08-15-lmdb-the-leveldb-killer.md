@@ -29,7 +29,7 @@ I have a number of questions that I feel the literature about LMDB doesn't cover
 
 Most of these are not really phrased as questions, more thoughts I had that literature does not address. Assume I'm asking the author or anyone with insight their thoughts on the issues discussed.
 
-To reiterate, I don't claim to be an expert. Some of my assumptions or understanding that lead the the issues below may be wrong - please correct me. Some of these issues may not be at all important in many use cases too. But I'm interested to understand these areas more so please let me know if you have thoughts or preferably experience with any of this. (You can comment on this block if you click the link at the bottom!)
+To reiterate, I don't claim to be an expert. Some of my assumptions or understanding that lead the the issues below may be wrong - please correct me. Some of these issues may not be at all important in many use cases too. But I'm interested to understand these areas more so please let me know if you have thoughts or preferably experience with any of this.
 
 #### Write Amplification
 
