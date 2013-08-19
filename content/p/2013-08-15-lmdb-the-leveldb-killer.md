@@ -82,7 +82,7 @@ LMDB makes a big play of being fully transactional. It's a great feature and imp
 
 Consider worst case that you modify 1 row in every leaf node, that means that the transaction commit will re-write every block in the database file. I realise currently that there is a limit on how many dirty pages can be accumulated by a single transaction but I've also read there are plans to remove this. 
 
-Leveldb by contrast can do an equivalent atomic batch write without anywhere near the same disk IO in the commit path. It would seem this is a key reason leveldb is so much better in random batch write mode. Again I'd love to see the test repeated with leveldb compression on too. 
+Leveldb by contrast can do an equivalent atomic batch write without anywhere near the same disk IO in the commit path. It would seem this is a key reason leveldb is so much better in random batch write mode. Again I'd love to see the test repeated with leveldb compression on too. [edit] On reflection, probably not such a big deal - writes to the WAL in leveldb won't be affected by compression. [/edit]
 
 It may not be a problem for your workload but actually it might. Having certain writes use so much IO could cause you some real latency issues and given single writer lock, could give you similar IO-based stalls that leveldb is known for due to it's background compaction.
 
