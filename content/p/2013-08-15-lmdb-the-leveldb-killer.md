@@ -21,7 +21,7 @@ On a personal note, I've found the apparent attitude towards leveldb and Google 
 
 So to sum up the slight gripe here: engineers don't buy silver-bullet presentations. A little more clarity on the trade-offs is important to convince us to take the extraordinary benchmark results seriously. 
 
-[edit] On reflection the previous statement goes too far - I do take the results seriously my point was more that they may seem "to good to be true" without a little more clarity on the limitations. [/edit]
+[edit] On reflection the previous statement goes too far - I do take the results seriously - my point was more that they may seem "to good to be true" without a little more clarity on the limitations. [/edit]
 
 ### My Questions
 
