@@ -71,10 +71,5 @@ $(function(){
 	// Disqus comment count in links
 	$.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
 
-	$('a.comment_link').on('click', function(){
-		var $this = $(this);
-		$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js', function(){
-			$this.remove();
-		});
-	});
+	$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js');
 });

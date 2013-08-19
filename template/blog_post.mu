@@ -2,7 +2,6 @@
     {{> blog_post_body.mu }}
     <footer>
         <div class="comments">
-            <a class="comment_link" href="#disqus_thread">&nbsp;</a>
             <div id="disqus_thread"></div>
         </div>
         {{> about.mu }}
