@@ -100,6 +100,6 @@ I feel to counter the potentially negative tone I may have struck here, I should
 
 I would suggest that a real understanding of the strengths *and weaknesses* of each option is an important factor in making real progress in the field. I'd humbly suggest that, if the author of LMDB was so inclined, including at least some discussion of some of these issues in the docs and benchmarks would benefit all. 
 
-I'll say it again if Howard or anyone else who's played with LMDB would like to comment on any of these issues, I'm genuinely interested to hear.
+I'll say it again if Howard or anyone else who's played with LMDB would like to comment on any of these issues, I'm looking forward to learning more.
 
 So is LMDB a leveldb killer? I'd say it seems good, but more data required.
