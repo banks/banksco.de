@@ -19,7 +19,9 @@ Please don't get me wrong, I don't think the material I've reviewed is bad, just
 
 On a personal note, I've found the apparent attitude towards leveldb and Google engineers a little off-putting too. I respect the authors opinion that LSM tree is a bad design for this purpose but the lack of respect toward it and it's authors that comes across in some presentations seems detrimental to the discussion of the engineering.
 
-So to sum up the slight gripe here: engineers don't buy silver-bullet presentations. A little more clarity on the trade-offs is important to convince us to take the extraordinary benchmark results seriously.
+So to sum up the slight gripe here: engineers don't buy silver-bullet presentations. A little more clarity on the trade-offs is important to convince us to take the extraordinary benchmark results seriously. 
+
+[edit] On reflection the previous statement goes too far - I do take the results seriously my point was more that they may seem "to good to be true" without a little more clarity on the limitations. [/edit]
 
 ### My Questions
 
