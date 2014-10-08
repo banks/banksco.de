@@ -39,7 +39,7 @@ It's a nasty hack and misses many other cases. The second example is one of the 
 
 ### Solution
 
-It would seem the most pragmatic solution is to adjust your ad serving logic to scan URL and referrer for email addresses and just opt to not show ads on that page if you find any. Hopefully it's rare enough not to loose you too much revenue and the alternatives are likely more expensive.
+It would seem the most pragmatic solution is to adjust your ad serving logic to scan URL and referrer for email addresses and just opt to not show ads on that page if you find any. Hopefully it's rare enough not to lose you too much revenue and the alternatives are likely more expensive.
 
 One thing to note though: checking for email addresses on server side is probably not enough. It wouldn't have caught that second case above and there are many other cases where it might not work.
 
