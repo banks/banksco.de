@@ -4,7 +4,12 @@ RewriteEngine  on
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^([a-z]+\.)?banksdesigns\.co\.uk$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.banksco\.de$
-RewriteRule (.*)$ http://banksco.de/$1 [R=301,L]
+RewriteRule (.*)$ https://banksco.de/$1 [R=301,L]
+
+# Redirect non-ssl
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 RewriteRule    ^post/(.*) 	/p/$1.html [L,R=301]
 RewriteRule    ^rss$ 		/blog.rss.xml [L,R=301]
