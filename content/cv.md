@@ -12,7 +12,7 @@ If you know of opportunities to work in that space, especially any supporting re
 ### Experience
 
 <dl>
-    <dt><span class="date-range">June 2013 &#151; Present</span> Principal Engineer at <a href="http://www.deviantart.com">DeviantArt</a></dt>
+    <dt><span class="date-range">June 2013 &#151; Present</span> Principal Engineer (Infrastructure) at <a href="http://www.deviantart.com">DeviantArt</a></dt>
     <dd>
 
     </dd>
