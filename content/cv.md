@@ -4,7 +4,7 @@ template: cv.mu
 ---
 ## Curriculum Vitae
 
-I am a professional Software Engineer.
+I'm a Software Engineer.
 I live in Devon, UK, working remotely for [DeviantArt](http://www.deviantart.com).
 I started my career as a full-stack web developer and have experience with native mobile development but I'm increasingly drawn to distributed systems problems and scalable architecture design.
 If you know of opportunities to work in that space, especially any supporting remote work, I'd love to hear from you.
@@ -59,7 +59,7 @@ If you know of opportunities to work in that space, especially any supporting re
             <li><a href="https://github.com/noplay/python-mysql-replication/commit/bad28d74e57209a39b6a1dd1f5191e77c721eed1">Python MySQL Replication</a></li>
             <li><a href="https://github.com/wycats/handlebars-site">Handlebars.js Documentation</a></li>
             <li>Some years ago I contributed to/wrote several modules for the
-                <a href="http://www.kohanaframework.org">Kohana Framework/a>. I gave a presentation
+                <a href="http://www.kohanaframework.org">Kohana Framework</a>. I gave a presentation
                 on a module I was working on and the topic of ORM generally at London Kohana Conference (May 2010).</li>
         </ul>
     </dd>
