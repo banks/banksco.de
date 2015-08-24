@@ -69,7 +69,7 @@ $(function(){
 	window.disqus_shortname = 'bypaulbanks';
 
 	// Disqus comment count in links
-	$.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
+	$.getScript('https://' + disqus_shortname + '.disqus.com/count.js');
 
-	$.getScript('http://' + disqus_shortname + '.disqus.com/embed.js');
+	$.getScript('https://' + disqus_shortname + '.disqus.com/embed.js');
 });
