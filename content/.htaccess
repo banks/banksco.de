@@ -8,6 +8,7 @@ RewriteRule (.*)$ https://banksco.de/$1 [R=301,L]
 
 # Redirect non-ssl
 RewriteEngine On
+RewriteCond %{HTTP_HOST} !^bankscode\.banksservers\.co\.uk$ [AND]
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
