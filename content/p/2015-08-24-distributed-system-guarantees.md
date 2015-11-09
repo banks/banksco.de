@@ -6,7 +6,7 @@ Tyler Treat just published [another](http://bravenewgeek.com/tag/distributed-sys
 
 I'll start with a word of thanks to Tyler - his blog is a great read and well recommended for his articulation and clarity on many computer science subjects that are often muddled by others.
 
-Tyler's article focusses specifically on distributed messaging guarantees but at least some of the discussion is relevant to or even intimately tied to other distributed problems like data consistency and consensus.
+Tyler's article focuses specifically on distributed messaging guarantees but at least some of the discussion is relevant to or even intimately tied to other distributed problems like data consistency and consensus.
 
 I agree with all of his points and I hope this article is a complement to the discussion on trade-offs in the distributed design space.
 
