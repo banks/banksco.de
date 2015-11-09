@@ -65,7 +65,4 @@ $(function(){
 		var $link = $(this);
 		$link.attr('href', $link.attr('href').replace('[at]', '@').replace('[dot]', '.'));
 	});
-
-	// Disqus comment count in links
-	$.getScript('https://bypaulbanks.disqus.com/count.js');
 });
