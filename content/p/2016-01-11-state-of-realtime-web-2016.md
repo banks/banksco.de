@@ -6,7 +6,7 @@ I've been working on infrastructure for real-time notifications for a high-traff
 
 This post is an attempt to sum up how I see the state of the relevant technologies at the start of 2016.
 
-I'll walk though the various techniques for delivering real-time message to browsers. There are good resources for details of each, so I'll instead focus on the gotchas and incompatibilities I've come across that need to be accounted for in the wild.
+I'll walk through the various techniques for delivering real-time message to browsers. There are good resources for details of each, so I'll instead focus on the gotchas and incompatibilities I've come across that need to be accounted for in the wild.
 
 This information is a mixture of first-hand experience and second-hand reading mostly of well-tested libraries such as [SockJS](https://github.com/sockjs), [socket.io](https://github.com/socket.io) and [MessageBus](https://github.com/SamSaffron/message_bus).
 
@@ -34,20 +34,20 @@ But with those points aside, the main thrust of Sam's argument that resonates st
 
  - Now supported in all modern browsers.
  - Efficient low-latency and high-throughput transport.
- - _If_ you need low-latency, high-throughput messaging back the server they can do it.
- - Super easy API work with in supported browsers - can make a toy app in an hour.
+ - _If_ you need low-latency, high-throughput messaging back to the server they can do it.
+ - Super easy API - can make a toy app in an hour.
 
 ### WebSocket Cons
- - Despite wide browser support, they are still not perfect: IE 8 and 9 and some other older mobile browsers need fall-backs anyway if you care about wide compatibility
+ - Despite wide browser support, they are still not perfect: IE 8 and 9 and some other older mobile browsers need fallbacks anyway if you care about wide compatibility
  - There were many revisions and false starts in the history of the WebSocket protocol, in practice you still have to support old quirky protocol versions on the server for wide browser coverage. Mostly this is handled for you by libraries but it's unpleasant baggage nonetheless.
  - Even when supported in browser, there are many restrictive proxies and similar in the wild that don't support WebSockets or which close connections after some short time regardless of ping activity. If you use SSL things improve a lot as proxies don't get to mangle the actual protocol, but still not perfect.
- - Due to the two issues above, you almost certainly need to implement fall-backs to other methods anyway, probably using a well-tested library as discussed below.
- - They work against HTTP/2. Most notably multiple tabs will cause multiple sockets always with WebSocket, whereas the older fall-backs can all benefit from sharing a single HTTP/2 connection even between tabs. In the next few years this will become more and more significant.
- - You have to choose a protocol over the WebSocket transport, if you do write data back with them, this can end up duplicating your existing REST API.
+ - Due to the two issues above, you almost certainly need to implement fallbacks to other methods anyway, probably using a well-tested library as discussed below.
+ - They work against HTTP/2. Most notably multiple tabs will cause multiple sockets always with WebSocket, whereas the older fallbacks can all benefit from sharing a single HTTP/2 connection even between tabs. In the next few years this will become more and more significant.
+ - You have to choose a protocol over the WebSocket transport. If you do write data back with them, this can end up duplicating your existing REST API.
 
 ## WebSocket Polyfills
 
-One of the big problems with WebSockets then is the need to support fall-backs. The sensible choice is to reach for a tried and tested library to handle those intricate browser quirks for you.
+One of the big problems with WebSockets then is the need to support fallbacks. The sensible choice is to reach for a tried and tested library to handle those intricate browser quirks for you.
 
 The most popular options are [SockJS](https://github.com/sockjs) and [socket.io](https://github.com/socket.io).
 
@@ -65,7 +65,7 @@ Yet if you are using a WebSocket polyfill, it's likely that you use some sort of
 
 All is fine on a real WebSocket but when the transport transparently reverts to plain old long-polls, this starts to get significantly more complicated than the optimal, simple long-poll described above. Each of the handshake and subscribe messages might need to be sent in separate requests. SockJS handles sending on a separate connection to listening.
 
-Worse is that many require that you have sticky-sessions enabled for the polling fall-back to work at all since they are trying to model a stateful socket connection over stateless HTTP/1.1 requests.
+Worse is that many require that you have sticky-sessions enabled for the polling fallback to work at all since they are trying to model a stateful socket connection over stateless HTTP/1.1 requests.
 
 The worst part is the combination: poor support for load balancing WebSockets in most popular load balancers and sticky session support. That means you may be forced to use Layer 4 (TCP/TLS) balancing for WebSockets _but_ you can't ensure session stickyness if you do. So SockJS and the like just can't work behind this kind of load balancer. [HAProxy](http://www.haproxy.org/) is the only one of the most popular load balancing solutions I know of that can handle Layer 7 WebSocket balancing right now which is a pain in AWS where ELBs give you auto-scaling and bypass the need to mess with keepalived or other HA mechanism for your load balancer.
 
@@ -79,14 +79,14 @@ To be clear, the benefits of not reinventing the wheel and getting on with dev w
 
 ### WebSocket Polyfill Cons
 
-- Usually require sticky sessions for fall-backs to work.
+- Usually require sticky sessions for fallbacks to work.
 - Usually less efficient and/or far more complex than needed for simple notification-only applications when falling back due to emulating bi-directional API.
 - Can run into issue like exhausting connections to one domain in older browsers and deadlocking if you make other `XMLHttpRequest`s to same domain.
 - Usually don't give you good control of reconnect timeouts and jitter which can limit your ability to prevent thundering herds or reconnections during incidents.
 
 ## Server Sent Events/EventSource
 
-The [EventSource API](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) has been around a while now and enjoys decent browser support - on a par with WebSockets. It interacts with a server-protocol names [Server Sent Events](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events). I'll just refer to both as "EventSource" from now on.
+The [EventSource API](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) has been around a while now and enjoys decent browser support - on par with WebSockets. It interacts with a server-protocol names [Server Sent Events](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events). I'll just refer to both as "EventSource" from now on.
 
 At first glance it looks ideal for the website notification use-case I see being so prevalent. It's not a bidrectional stream; it uses only HTTP/1.1 under hood so works with most proxies and load balancers; long-lived connection can send multiple events with low latency; has a mechanism for assigning message ids and sending cursor on reconnect; browser implementations transparently perform reconnects for you.
 
@@ -108,7 +108,7 @@ What more can you want? Well...
 - Browser reconnect jitter/back-off policy is not under your control which could limit your ability to mitigate outages at scale just as well WebSocket Polyfills above.
 - Some older browser versions have incorrect implementations that look the same but don't support reconnecting or CORS.
 - Long-lived connections can still be closed early by restrictive proxies.
-- Streaming fall-backs below are essentially the same (with additional work to implement reconnect, data framing and message ids) with better browser support - you probably need them anyway for IE.
+- Streaming fallbacks below are essentially the same (with additional work to implement reconnect, data framing and message ids) with better browser support - you probably need them anyway for IE.
 
 ## XMLHttpRequest/XDomainRequest Streaming
 
@@ -129,7 +129,7 @@ These techniques are often refered to as "XHR/XDR Streaming".
 ### XHR/XDR Streaming Cons/Gotchas
 
 - Still doesn't work (cross domain) in really old browsers like IE 7.
-- `XDomainRequest` used as fall-back for IE 8 and 9 doesn't support cookies so you can't use this if you require both cross domain connection _and_ cookies for auth or sticky sessions.
+- `XDomainRequest` used as fallback for IE 8 and 9 doesn't support cookies so you can't use this if you require both cross domain connection _and_ cookies for auth or sticky sessions.
 - `XDomainRequest` also doesn't support custom headers. Possibly not a big deal but notable if you are trying to [emulate EventSource](https://github.com/Yaffle/EventSource/#server-side-requirements) which uses custom headers for retry cursor.
 - Long-lived connections can still be closed early by restrictive proxies.
 - There is a subtle memory leak: the body text of the HTTP response grows and grows as new messages come in consuming more memory over time. To mitigate this, you need to set some limit on this body size and when it's passed close and re-open connection.
@@ -188,7 +188,7 @@ Periodically issuing a plain old XHR (or XDR/JSONP) request to a backend which r
 
 ## Others
 
-There are many other variants I'm missing out as this is already fairly long. Most of them involve using a hidden iframe. Inside the iframe chunked html files or one of the above transports is used and [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) or even a fall-back method is used to notify the parent frame of the new events.
+There are many other variants I'm missing out as this is already fairly long. Most of them involve using a hidden iframe. Inside the iframe chunked html files or one of the above transports is used and [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) or even a fallback method is used to notify the parent frame of the new events.
 
 These variants generally are only needed if you have requirement to support both streaming _and_ cookie enabled transport for older browsers for example. I won't consider them further.
 
@@ -216,10 +216,10 @@ My thoughts here have a bias towards real-time notifications on websites which r
 
 Even applications like "real-time" comment threads probably don't - submitting content as normal via POST and then getting updates via streaming push works well for [Discourse](https://www.discourse.org/).
 
-It's also worth noting that Gmail uses XHR Streaming and Facebook uses boring XHR long-polls even on modern browsers. Twitter uses even more unsexy short polls every 10 seconds (over HTTP/2 if available). These sites for me are perfect examples of the most common uses for "real-time" updates in web apps and support my conclusion that most of us don't need WebSockets or full-fidelity fall-backs and yet often have to pay the cost of their downsides just to get something working easily.
+It's also worth noting that Gmail uses XHR Streaming and Facebook uses boring XHR long-polls even on modern browsers. Twitter uses even more unsexy short polls every 10 seconds (over HTTP/2 if available). These sites for me are perfect examples of the most common uses for "real-time" updates in web apps and support my conclusion that most of us don't need WebSockets or full-fidelity fallbacks and yet often have to pay the cost of their downsides just to get something working easily.
 
 Sam Saffron's [MessageBus](https://github.com/SamSaffron/message_bus) is a notable exception which follows this line of thinking however it's only aimed at Ruby/Rack server apps.
 
 I find myself wishing for a generalisation of MessageBus' transport that can be made portable across other applications, something like SockJS or Socket.io but without the goal of bi-directional WebSocket emulation. Eventually it could support Web Push where available and pave the way for adopting that in the interim before browsers support it. Perhaps an open-source project in the making.
 
-_Thanks to [Sam Saffron](https://samsaffron.com/) and [Alexandr Emelin](https://github.com/FZambia) who read through a draft of this very long post and offered comments. Any mistakes are wholly my own - please set me striaght in the comments!_
+_Thanks to [Sam Saffron](https://samsaffron.com/), [Alexandr Emelin](https://github.com/FZambia) and [Micah Goulart](https://twitter.com/micahgoulart) who read through a draft of this very long post and offered comments. Any mistakes are wholly my own - please set me straight in the comments!_
