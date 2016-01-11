@@ -14,7 +14,7 @@
 	</p>
 	<p>
 		In case it's not obvious, this is my personal blog. The views expressed on these pages are mine alone and not those of my employer.
-	</P
+	</p>
 	<p>
 		For more info
 		<a href="{{Cfg.site.base_url}}/cv.html">see my CV</a> or
