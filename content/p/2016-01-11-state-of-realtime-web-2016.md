@@ -188,9 +188,9 @@ Periodically issuing a plain old XHR (or XDR/JSONP) request to a backend which r
 
 ## Others
 
-There are many other variants I'm missing out as this is already fairly long. Most of them involve using a hidden iframe. Inside the iframe chunked html files or one of the above transports is used and [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) or even a fallback method is used to notify the parent frame of the new events.
+There are many other variants I'm missing out as this is already fairly long. Most of them involve using a hidden iframe. Inside the iframe HTML files with individual script blocks served with chunked encoding or one of the above transports receive events and call [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) or a fallback method to notify the parent frame.
 
-These variants generally are only needed if you have requirement to support both streaming _and_ cookie enabled transport for older browsers for example. I won't consider them further.
+These variants are generally only needed if you have requirement to support both streaming _and_ cookie enabled transport for older browsers for example. I won't consider them further.
 
 ## The Future
 
@@ -198,25 +198,25 @@ You may have noticed if you use Chrome that Facebook can now send you notificati
 
 This standard allows browsers to subscribe to any compliant push service and monitor for updates even when your site isn't loaded. When they come in [service workers](https://developers.google.com/web/updates/2015/03/push-notifications-on-the-open-web) can be called to handle the notification.
 
-Great! Soon we won't have to worry about this transport stuff at all. All browsers will support this and a few decent open source service implementations will exist to run on our servers or we can use a cloud provider!
+Great! Soon we won't have to worry about this transport stuff at all. All browsers will support this and all we'll have lovely open-source libraries to easily implement that backend.
 
-But that's some way off. Currently Chrome only supports a hacked version that doesn't follow standard becuase it uses their proprietary [Google Cloud Messaging]() platform (although they claim to be working with Mozilla on standards compliant version).
+But that's some way off. Currently Chrome only supports a modified version that doesn't follow standard because it uses their existing proprietary [Google Cloud Messaging](https://developers.google.com/cloud-messaging/) platform (although they claim to be working with Mozilla on standards compliant version).
 
 Firefox is working on an implementation (in Nightlies) but it's going to be some years yet before there is enough browser support for this to replace any of the other options for majority of users.
 
-I came accross this standard after writing most of the rest of this post and I would like to pick out a few points that reinforce my main points here:
+I came across this standard after writing most of the rest of this post and I would like to pick out a few points that reinforce my main points here:
 
  - It's push only technology
- - [The transport is HTTP/2](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#monitor) server push which can fallback to regular HTTP poll. No WebSockets. No custom TCP protocol. Presumably if you have push enabled over HTTP/2 in your browser, then your actual site requests could be made over it too meaning that in some cases it might even cut down on connection overhead for you main page loads... That's pure specualation though.
+ - [The transport is HTTP/2](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#monitor) server push which can fallback to regular HTTP poll. No WebSockets. No custom TCP protocol. Presumably if you have push enabled over HTTP/2 in your browser, then your actual site requests could be made over it too meaning that in some cases it might even cut down on connection overhead for your main page loads... That's pure speculation though.
   - The spec [explicitly recommends against application-level fallbacks](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#rfc.section.7.4) although clearly they will be needed until this spec is supported virtually everywhere which will be at least a few years away.
 
-## Do we need bi-directional sockets?
+## Do you need bi-directional sockets?
 
 My thoughts here have a bias towards real-time notifications on websites which really don't require bi-directional low-latency sockets.
 
 Even applications like "real-time" comment threads probably don't - submitting content as normal via POST and then getting updates via streaming push works well for [Discourse](https://www.discourse.org/).
 
-It's also worth noting that Gmail uses XHR Streaming and Facebook uses boring XHR long-polls even on modern browsers. Twitter uses even more unsexy short polls every 10 seconds (over HTTP/2 if available). These sites for me are perfect examples of the most common uses for "real-time" updates in web apps and support my conclusion that most of us don't need WebSockets or full-fidelity fallbacks and yet often have to pay the cost of their downsides just to get something working easily.
+It's also worth noting that GMail uses XHR Streaming and Facebook uses boring XHR long-polls even on modern browsers. Twitter uses even more unsexy short polls every 10 seconds (over HTTP/2 if available). These sites for me are perfect examples of the most common uses for "real-time" updates in web apps and support my conclusion that most of us don't need WebSockets or full-fidelity fallbacks - yet we have to pay the cost of their downsides just to get something working easily.
 
 Sam Saffron's [MessageBus](https://github.com/SamSaffron/message_bus) is a notable exception which follows this line of thinking however it's only aimed at Ruby/Rack server apps.
 
