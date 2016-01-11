@@ -86,7 +86,7 @@ To be clear, the benefits of not reinventing the wheel and getting on with dev w
 
 ## Server Sent Events/EventSource
 
-The [EventSource API](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) has been around a while now and enjoys decent browser support - on par with WebSockets. It interacts with a server-protocol names [Server Sent Events](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events). I'll just refer to both as "EventSource" from now on.
+The [EventSource API](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) has been around a while now and enjoys decent browser support - on par with WebSockets. It interacts with a server-protocol named [Server Sent Events](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events). I'll just refer to both as "EventSource" from now on.
 
 At first glance it looks ideal for the website notification use-case I see being so prevalent. It's not a bidrectional stream; it uses only HTTP/1.1 under hood so works with most proxies and load balancers; long-lived connection can send multiple events with low latency; has a mechanism for assigning message ids and sending cursor on reconnect; browser implementations transparently perform reconnects for you.
 
@@ -104,8 +104,8 @@ What more can you want? Well...
 ### EventSource Cons
 
 - No IE support, not even IE 11 or Edge.
-- Never made if past a [draft proposal](https://w3c.github.io/eventsource/) and is no longer being worked on and remains only in the [WhatWG living standard](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events), while it should still work for some time in supported browsers, this doesn't feel like a tech that people are betting on for the future.
-- Browser reconnect jitter/back-off policy is not under your control which could limit your ability to mitigate outages at scale just as well WebSocket Polyfills above.
+- Never made it past a [draft proposal](https://w3c.github.io/eventsource/), is no longer being worked on and remains only in the [WhatWG living standard](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events). While it should still work for some time in supported browsers, this doesn't feel like a tech that people are betting on for the future.
+- Browser reconnect jitter/back-off policy is not under your control which could limit your ability to mitigate outages at scale just as with WebSocket Polyfills above.
 - Some older browser versions have incorrect implementations that look the same but don't support reconnecting or CORS.
 - Long-lived connections can still be closed early by restrictive proxies.
 - Streaming fallbacks below are essentially the same (with additional work to implement reconnect, data framing and message ids) with better browser support - you probably need them anyway for IE.
@@ -132,12 +132,13 @@ These techniques are often refered to as "XHR/XDR Streaming".
 - `XDomainRequest` used as fallback for IE 8 and 9 doesn't support cookies so you can't use this if you require both cross domain connection _and_ cookies for auth or sticky sessions.
 - `XDomainRequest` also doesn't support custom headers. Possibly not a big deal but notable if you are trying to [emulate EventSource](https://github.com/Yaffle/EventSource/#server-side-requirements) which uses custom headers for retry cursor.
 - Long-lived connections can still be closed early by restrictive proxies.
+- Even well-behaved proxies will close idle connections, so your server needs to send a "ping" or heartbeat packet. Usually this is sent every 25-29 seconds to defeat 30 second timeouts reliably.
 - There is a subtle memory leak: the body text of the HTTP response grows and grows as new messages come in consuming more memory over time. To mitigate this, you need to set some limit on this body size and when it's passed close and re-open connection.
 - In order to defeat load balancer and proxy connection idle timeouts, server needs to periodically send something. Generally 25 seconds is recommended interval to work around proxies with a 30 second timeout.
-- IE 8 and 9 don't fire XDR progress handler until they reach some threshold response size. This means you [might need to send 2KB of junk](http://blogs.msdn.com/b/ieinternals/archive/2010/04/06/comet-streaming-in-internet-explorer-with-xmlhttprequest-and-xdomainrequest.aspx) when request starts to avoid blocking your real events. Some other older browsers had similar issues with XmlHttpRequest but these are so rare they probably aren't worth supporting. In practice you can tell if browser supports `XmlHttpRequest.onprogress` as an indicator that it will work without padding.
+- IE 8 and 9 don't fire XDR progress handler until they reach some threshold response size. This means you [might need to send 2KB of junk](http://blogs.msdn.com/b/ieinternals/archive/2010/04/06/comet-streaming-in-internet-explorer-with-xmlhttprequest-and-xdomainrequest.aspx) when request starts to avoid blocking your real events. Some other older browsers had similar issues with XMLHttpRequest but these are so rare they probably aren't worth supporting. In practice you can tell if browser supports `XMLHttpRequest.onprogress` as an indicator that it will work without padding.
 - [Some browsers](http://stackoverflow.com/questions/26164705/chrome-not-handling-chunked-responses-like-firefox-safari) require `X-Content-Type-Options: nosniff` header otherwise they delay delivering messages until they have enough data to sniff (I've seen reports this is 256 bytes for Chrome).
 - You may have to [encapsulate messages in some custom delimiters](https://github.com/SamSaffron/message_bus/blob/master/lib/message_bus/client.rb#L183) since proxies might re-chunk the stream and you need to be able to recover original message boundaries to parse them. Google seems to use HTTP/1.1 chunked encoding scheme inside the response text to delimit "messages" (i.e. chunked encoding inside chunked encoding).
-- The big one: some proxies buffer chunked responses, delaying your events uncontrollably. You may want to send a ping message immediately on a new connection and then [revert to non-streaming](https://github.com/SamSaffron/message_bus/blob/master/assets/message-bus.js#L180) in the client if you don't get that initial message though soon enough.
+- The big one: some proxies buffer chunked responses, delaying your events uncontrollably. You may want to send a ping message immediately on a new connection and then [revert to non-streaming](https://github.com/SamSaffron/message_bus/blob/master/assets/message-bus.js#L180) in the client if you don't get that initial message through soon enough.
 
 ## XMLHttpRequest/XDomainRequest Long-polling
 
@@ -155,12 +156,12 @@ When an event arrives at the server that the user is interested in, a complete H
 ### XHR/XDR Long-polling Cons
 
  - Same cross-domain/browser support issues as XHR/XDR streaming.
- - Overhead of whole new HTTP request and possibly tcp connection every 25 seconds or so.
- - To achieve high-throughput you have to start batching heavily either on server or by not reconnecting right away to allow bigger batch of events to queue. If you have lots of clients all listening to high-throughput channel this adds up to a huge amount of HTTP requests unless you ramp up batching to be on order of 20-30 seconds. But then you are trading off latency - is 30 seconds latency acceptable for your "real-time" app?
+ - Overhead of whole new HTTP request and possibly TCP connection every 25 seconds or so.
+ - To achieve high-throughput you have to start batching heavily either on server or by not reconnecting right away in the client to allow bigger batch of events to queue. If you have lots of clients all listening to high-throughput channel this adds up to a huge amount of HTTP requests unless you ramp up batching to be on order of 20-30 seconds. But then you are trading off latency - is 30 seconds latency acceptable for your "real-time" app?
 
 ## JSONP Long-polling
 
-The most widely supported long-polling technique is JSONP or "script tag" long-polling. This is just like XHR/XDR long-polling except that we are using [JSONP](https://en.wikipedia.org/wiki/JSONP) to achieve cross-domain requests instead of relying on CORS or XDR support. This works in virtually every browser you could reasonably want to support.
+The most widely supported cross-domain long-polling technique is JSONP or "script tag" long-polling. This is just like XHR/XDR long-polling except that we are using [JSONP](https://en.wikipedia.org/wiki/JSONP) to achieve cross-domain requests instead of relying on CORS or XDR support. This works in virtually every browser you could reasonably want to support.
 
 ### JSONP Long-polling Pros
 
@@ -184,7 +185,7 @@ Periodically issuing a plain old XHR (or XDR/JSONP) request to a backend which r
 ## Polling Cons
 
 - Not really "real-time" with an average of half the poll interval latency per message. That might be 5 or 10 seconds.
-- Perception is that this is expensive if you service the requests via your regular web app - can easily create orders of magnitude more HTTP request on your web servers. In reality though you can use highly optimised path for this like you would with long-poll/websocket.
+- Perception is that this is expensive if you service the requests via your regular web app - can easily create orders of magnitude more HTTP request on your web servers. In practice you can use highly optimised path on a separate service to mitigate this.
 
 ## Others
 
@@ -208,7 +209,7 @@ I came across this standard after writing most of the rest of this post and I wo
 
  - It's push only technology
  - [The transport is HTTP/2](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#monitor) server push which can fallback to regular HTTP poll. No WebSockets. No custom TCP protocol. Presumably if you have push enabled over HTTP/2 in your browser, then your actual site requests could be made over it too meaning that in some cases it might even cut down on connection overhead for your main page loads... That's pure speculation though.
-  - The spec [explicitly recommends against application-level fallbacks](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#rfc.section.7.4) although clearly they will be needed until this spec is supported virtually everywhere which will be at least a few years away.
+ - The spec [explicitly recommends against application-level fallbacks](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#rfc.section.7.4) although clearly they will be needed until this spec is supported virtually everywhere which will be at least a few years away.
 
 ## Do you need bi-directional sockets?
 
