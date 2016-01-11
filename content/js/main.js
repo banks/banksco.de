@@ -12,7 +12,7 @@ $(function(){
 
 				is_open = true;
 				$logo.addClass('open')
-				   .animate({width: 480, height: 160}
+				   .animate({width: 480, height: 500}
 				   		   ,200
 				   		   ,function(){
 

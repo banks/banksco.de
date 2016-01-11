@@ -10,6 +10,12 @@
 		I consider it a courtesey to <a href="http://madebythepotter.blogspot.com">my wife</a>.
 	</p>
 	<p>
+		You should note the date on anything you read here. There are things written here in the past that I leave for historical purposes rather than because they remain accurate or even consistent with my current opinions.
+	</p>
+	<p>
+		In case it's not obvious, this is my personal blog. The views expressed on these pages are mine alone and not those of my employer.
+	</P
+	<p>
 		For more info
 		<a href="{{Cfg.site.base_url}}/cv.html">see my CV</a> or
 		<a href="https://www.github.com/banks">follow me on Github</a>.
