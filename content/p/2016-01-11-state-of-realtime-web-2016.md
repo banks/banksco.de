@@ -12,7 +12,7 @@ This information is a mixture of first-hand experience and second-hand reading m
 
 ## WebSockets
 
-It's 2016. We are officially in [the future](http://www.october212015.com/).[WebSockets](https://en.wikipedia.org/wiki/WebSocket) are a real standard and are [supported in all recent major browsers](http://caniuse.com/#search=websockets).
+It's 2016. We are officially in [the future](http://www.october212015.com/). [WebSockets](https://en.wikipedia.org/wiki/WebSocket) are a real standard and are [supported in all recent major browsers](http://caniuse.com/#search=websockets).
 
 That should really be the end of the article but, as always, it isn't.
 
@@ -25,9 +25,9 @@ There are many reasons I've experienced which suggest this _might_ not be the be
  1. Long-lived requests are very different to regular HTTP traffic whether they are WebSockets, HTTP/1.1 chunked streams or just boring long-polls. For one real-life test we increased the number of sockets open on our load balancer by a factor of 5 or more in steady state with orders-of-magnitude higher peaks during errors causing mass-reconnects. For _most_ websites, real-time notifications are a secondary feature; failure in a socket server or overload due to a client bug really shouldn't be able to take out your main website and the best way to ensure that is to have the traffic routed to a totally different load balancer at DNS level (i.e. on a separate subdomain).
 
  2. If your web application isn't already an efficient event-driven daemon (or have equivalent functionality like Rack Hijack) long-lived connections in main app are clearly a bad choice. In our case our app is PHP on apache. So handling long-lived connections _must_ occur on separate processes (and in practice servers) with suitable technology for that job.
- 
+
  3. Scaling real-time servers and load balancing independently of your main application servers is probably a good thing. While load balancing tens or hundreds of thousands of open connections might be a huge burden to your main load balancer as in point 1, you can probably handle that load with an order of magnitude or two fewer socket servers than are in your web server cluster if you are at that scale.
- 
+
 But with those points aside, the main thrust of Sam's argument that resonates strongly with my experience is that **most apps don't need bidirectional sockets** so the cons of using WebSockets listed below can be a high price for a technology you don't really need. [Sam's article](https://samsaffron.com/archive/2015/12/29/websockets-caution-required) goes into more details on some of the issues and includes others that are not as relevant to my overview here so worth a read.
 
 ### WebSocket Pros
@@ -36,7 +36,7 @@ But with those points aside, the main thrust of Sam's argument that resonates st
  - Efficient low-latency and high-throughput transport.
  - _If_ you need low-latency, high-throughput messaging back the server they can do it.
  - Super easy API work with in supported browsers - can make a toy app in an hour.
- 
+
 ### WebSocket Cons
  - Despite wide browser support, they are still not perfect: IE 8 and 9 and some other older mobile browsers need fall-backs anyway if you care about wide compatibility
  - There were many revisions and false starts in the history of the WebSocket protocol, in practice you still have to support old quirky protocol versions on the server for wide browser coverage. Mostly this is handled for you by libraries but it's unpleasant baggage nonetheless.
@@ -44,9 +44,9 @@ But with those points aside, the main thrust of Sam's argument that resonates st
  - Due to the two issues above, you almost certainly need to implement fall-backs to other methods anyway, probably using a well-tested library as discussed below.
  - They work against HTTP/2. Most notably multiple tabs will cause multiple sockets always with WebSocket, whereas the older fall-backs can all benefit from sharing a single HTTP/2 connection even between tabs. In the next few years this will become more and more significant.
  - You have to choose a protocol over the WebSocket transport, if you do write data back with them, this can end up duplicating your existing REST API.
- 
+
 ## WebSocket Polyfills
- 
+
 One of the big problems with WebSockets then is the need to support fall-backs. The sensible choice is to reach for a tried and tested library to handle those intricate browser quirks for you.
 
 The most popular options are [SockJS](https://github.com/sockjs) and [socket.io](https://github.com/socket.io).
@@ -76,9 +76,9 @@ To be clear, the benefits of not reinventing the wheel and getting on with dev w
  - For the most part they just work, almost everywhere.
  - The most widely used ones are now battle hardened.
  - Leave you to write your app and not think about the annoying transport quirks described here.
- 
+
 ### WebSocket Polyfill Cons
- 
+
 - Usually require sticky sessions for fall-backs to work.
 - Usually less efficient and/or far more complex than needed for simple notification-only applications when falling back due to emulating bi-directional API.
 - Can run into issue like exhausting connections to one domain in older browsers and deadlocking if you make other `XMLHttpRequest`s to same domain.
@@ -93,14 +93,14 @@ At first glance it looks ideal for the website notification use-case I see being
 What more can you want? Well...
 
 ### EventSource Pros
- 
+
  - Plain HTTP/1.1 is easy to loadbalance at Layer 7.
  - Not stateful, no need for sticky sessions (if you design your protocol right).
  - Efficient for low-latency _and_ high-throughput messages.
  - Built in message delimiting, ids, and replay on reconnect.
  - No need for the workarounds for quirks with plain chunked encoding.
  - Can automatically take advantage of HTTP/2 and share a connection with any other requests streaming or otherwise to the same domain (even from different tabs).
- 
+
 ### EventSource Cons
 
 - No IE support, not even IE 11 or Edge.
@@ -109,7 +109,7 @@ What more can you want? Well...
 - Some older browser versions have incorrect implementations that look the same but don't support reconnecting or CORS.
 - Long-lived connections can still be closed early by restrictive proxies.
 - Streaming fall-backs below are essentially the same (with additional work to implement reconnect, data framing and message ids) with better browser support - you probably need them anyway for IE.
- 
+
 ## XMLHttpRequest/XDomainRequest Streaming
 
 Uses the same underlying mechanism as EventSource above: HTTP/1.1 chunked encoding on a long-lived connection, but without browser handling the connection directly.
@@ -151,12 +151,12 @@ When an event arrives at the server that the user is interested in, a complete H
  - Can automatically take advantage of HTTP/2.
  - Works even when proxies don't like long-lived connection, or buffer chunked responses for too long.
  - No need for server pings - natural long poll timeout is set short enough.
- 
+
 ### XHR/XDR Long-polling Cons
 
  - Same cross-domain/browser support issues as XHR/XDR streaming.
  - Overhead of whole new HTTP request and possibly tcp connection every 25 seconds or so.
- - To achieve high-throughput you have to start batching heavily either on server or by not reconnecting right away to allow bigger batch of events to queue. If you have lots of clients all listening to high-throughput channel this adds up to a huge amount of HTTP requests unless you ramp up batching to be on order of 20-30 seconds. But then you are trading off latency - is 30 seconds latency acceptable for your "real-time" app? 
+ - To achieve high-throughput you have to start batching heavily either on server or by not reconnecting right away to allow bigger batch of events to queue. If you have lots of clients all listening to high-throughput channel this adds up to a huge amount of HTTP requests unless you ramp up batching to be on order of 20-30 seconds. But then you are trading off latency - is 30 seconds latency acceptable for your "real-time" app?
 
 ## JSONP Long-polling
 
