@@ -193,13 +193,13 @@ There are many other variants I'm missing out as this is already fairly long. Mo
 
 These variants are generally only needed if you have requirement to support both streaming _and_ cookie enabled transport for older browsers for example. I won't consider them further.
 
-## The Future
+## The Future(?)
 
 You may have noticed if you use Chrome that Facebook can now send you notifications even when you have no tab open. This is a [Chrome feature](http://techcrunch.com/2015/09/14/facechrome) that uses a new [Web Push standard](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html) currently in draft status.
 
 This standard allows browsers to subscribe to any compliant push service and monitor for updates even when your site isn't loaded. When they come in [service workers](https://developers.google.com/web/updates/2015/03/push-notifications-on-the-open-web) can be called to handle the notification.
 
-Great! Soon we won't have to worry about this transport stuff at all. All browsers will support this and all we'll have lovely open-source libraries to easily implement that backend.
+Great! Soon we won't have to worry about this transport stuff at all. All browsers will support this and all we'll have lovely open-source libraries to easily implement that backend. (But see update below.)
 
 But that's some way off. Currently Chrome only supports a modified version that doesn't follow standard because it uses their existing proprietary [Google Cloud Messaging](https://developers.google.com/cloud-messaging/) platform (although they claim to be working with Mozilla on standards compliant version).
 
@@ -210,6 +210,12 @@ I came across this standard after writing most of the rest of this post and I wo
  - It's push only technology
  - [The transport is HTTP/2](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#monitor) server push which can fallback to regular HTTP poll. No WebSockets. No custom TCP protocol. Presumably if you have push enabled over HTTP/2 in your browser, then your actual site requests could be made over it too meaning that in some cases it might even cut down on connection overhead for your main page loads... That's pure speculation though.
  - The spec [explicitly recommends against application-level fallbacks](https://martinthomson.github.io/drafts/draft-thomson-webpush-http2.html#rfc.section.7.4) although clearly they will be needed until this spec is supported virtually everywhere which will be at least a few years away.
+ 
+**Update 13th Jan 2016**
+
+After reading the spec closely and trying to think about how to use this technology it became clear that it might not be a good fit for general purpose in-page updates.
+
+I [clarified with the authors on the mailinglist](https://lists.w3.org/Archives/Public/public-webapps/2016JanMar/0044.html) (resulting in [this issue](https://github.com/w3c/push-api/issues/179)). The **tl;dr**: this is designed similar to native mobile push - it's device centric rather than general pub/sub and is intended for _infrequent_ message that are relevant to a user outside of a page context. Right now [implementations limit or forbid](https://developer.mozilla.org/en/docs/Web/API/Push_API) it's use for anything that doesn't display [browser notifications](https://developer.mozilla.org/en/docs/Web/API/notification). If that's all you need, you may be able to use it in-page too, but for live-updating comment threads in your app where you only care about updates for the thread visible on page, it wont be the solution.
 
 ## Do you need bi-directional sockets?
 
