@@ -1,3 +1,43 @@
+/* signika-300 - latin */
+@font-face {
+  font-family: 'Signika';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/font/signika-v6-latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Signika-Light'),
+       url('/font/signika-v6-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/font/signika-v6-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/font/signika-v6-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('/font/signika-v6-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/font/signika-v6-latin-300.svg#Signika') format('svg'); /* Legacy iOS */
+}
+/* buenard-regular - latin */
+@font-face {
+  font-family: 'Buenard';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/font/buenard-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Buenard'), local('Buenard-Regular'),
+       url('/font/buenard-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/font/buenard-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/font/buenard-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/font/buenard-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/font/buenard-v7-latin-regular.svg#Buenard') format('svg'); /* Legacy iOS */
+}
+/* buenard-700 - latin */
+@font-face {
+  font-family: 'Buenard';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/font/buenard-v7-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Buenard Bold'), local('Buenard-Bold'),
+       url('/font/buenard-v7-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/font/buenard-v7-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/font/buenard-v7-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/font/buenard-v7-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/font/buenard-v7-latin-700.svg#Buenard') format('svg'); /* Legacy iOS */
+}
+
 body {
 	font-family: 'Buenard', serif;
 	font-size: 20px;
@@ -25,6 +65,19 @@ body {
 	cursor: pointer;
 	overflow: hidden;
 	width: 178px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+#logo:hover {
+	opacity: 0.99;
+}
+#logo.open {
+	opacity: 0.99;
+	width: 480px;
+	height: 500px;
 }
 #logo a {
 	text-decoration: none;

@@ -6,15 +6,18 @@
   "author": "Paul Banks <banks@banksdesigns.co.uk>",
   "dependencies": {
     "handlebars": "1.0.x",
-    "marked": "0.2.x",
     "highlight": "0.2.x",
-    "moment": "1.7.2",
-    "rss": "0.0.4",
-    "restify": "1.4.x",
-    "underscore": "1.4.x",
     "js-yaml": "1.0.x",
-    "yaml-front-matter": "1.0.x",
-    "q": "0.8.x"
+    "marked": "0.2.x",
+    "moment": "1.7.2",
+    "q": "0.8.x",
+    "restify": "1.4.x",
+    "rss": "0.0.4",
+    "uglify": "^0.1.5",
+    "uglify-js": "^2.6.1",
+    "uglifycss": "0.0.20",
+    "underscore": "1.4.x",
+    "yaml-front-matter": "1.0.x"
   },
   "devDependencies": {
     "watch_r": "0.0.x"

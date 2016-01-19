@@ -1,68 +1,65 @@
-$(function(){
+document.addEventListener("DOMContentLoaded", function(){
 
-	var AboutPanel = (function() {
-		var is_open = false
-			,mouse_over = false
-			,$logo = $('#logo')
-			,$content = $('footer div.about p').clone()
-			,closed_w = $logo.width()
-			,closed_h = $logo.height()
-			,open_panel = function() {
-				if (is_open) return;
+    var $d = document;
+    var $id = function(id) { return $d.getElementById(id); };
 
-				is_open = true;
-				$logo.addClass('open')
-				   .animate({width: 480, height: 500}
-				   		   ,200
-				   		   ,function(){
+    // From https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
+    function hasClass(el, className) {
+        return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+    }
 
-		    		 	   });
-			}
-			,close_panel = function() {
-				if (!is_open) return;
+    function addClass(el, className) {
+        if (el.classList) el.classList.add(className);
+        else if (!hasClass(el, className)) el.className += ' ' + className;
+    }
 
-				is_open = false;
-				$logo.removeClass('open')
-				   .animate({width: closed_w, height: closed_h}
-				   		   ,200);
+    function removeClass(el, className) {
+        if (el.classList) el.classList.remove(className);
+        else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
+    }
 
-				if (!mouse_over) {
-					$logo.fadeTo(200, 0.5);
-				}
-			};
+    var AboutPanel = (function() {
+        var is_open = false
+            ,mouse_over = false
+            ,logo = $id('logo')
+            ,logo_cstyle = window.getComputedStyle(logo)
+            ,closed_w = logo_cstyle.width
+            ,closed_h = logo_cstyle.height
+            ,open_panel = function() {
+                if (is_open) return;
 
-		// Startup, build info from footer
-		$('#about', $logo).append($content);
+                is_open = true;
+                addClass(logo, 'open');
+            }
+            ,close_panel = function() {
+                if (!is_open) return;
 
-		// Hook "logo"
-		$logo.hover(function(){
-						mouse_over = true;
-				    	$logo.fadeTo(200, 0.99);
-				    }
-				    ,function(){
-				    	mouse_over = false;
-				    	if (!is_open) {
-				    		$logo.fadeTo(200, 0.5);
-				    	}
-				    }).on('click', function(e){
-				    	e.stopPropagation();
-				    	if (!is_open && $content.length) {
-				    		open_panel();
-				    	} else if ($(e.target).is('span,a.close')) {
-				    		close_panel();
-				    	} else {
-				    		// Legitimate click on link etc let it work
-				    		return true;
-				    	}
-				    	return false;
-				    });
+                is_open = false;
+                removeClass(logo, 'open');
+            };
 
-		// Close on click outside panel
-		$(document).on('click', close_panel);
-	})();
+        // Startup, build info from footer
+        var ps = $d.querySelectorAll('footer div.about p');
+        for (var i = 0; i < ps.length; i++) {
+            $id('about').appendChild(ps[i].cloneNode(true));
+        }
 
-	$('a.email-link').each(function(){
-		var $link = $(this);
-		$link.attr('href', $link.attr('href').replace('[at]', '@').replace('[dot]', '.'));
-	});
+        // Hook "logo"
+        logo.addEventListener('click', function(e){
+            if (!is_open) {
+                open_panel();
+            } else if (hasClass(e.target, 'close')) {
+                close_panel();
+            } else {
+                // Legitimate click on link etc let it work
+                return true;
+            }
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        });
+
+        // Close on click outside panel
+        $d.addEventListener('click', close_panel);
+    })();
 });

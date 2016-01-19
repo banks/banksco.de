@@ -4,12 +4,6 @@
         <time pubdate="pubdate">
             {{date_format pub_date "Do MMMM YYYY"}}
         </time>
-        <span class='st_sharethis'></span>
-        <span class='st_facebook'></span>
-        <span class='st_twitter'></span>
-        <span class='st_linkedin'></span>
-        <span class='st_pinterest'></span>
-        <span class='st_email'></span>
     </div>
 </header>
 
