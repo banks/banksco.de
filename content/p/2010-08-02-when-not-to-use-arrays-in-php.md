@@ -1,6 +1,7 @@
 ---
 title: When not to use arrays in PHP
 ---
+
 **Arrays in PHP are actually pretty inefficient at storing lots of small bits of data.**
 
 I think I read that a single integer in an array uses 58 bytes of memory. Now that is not worth thinking about in most PHP applications, but it can matter when your arrays get big.

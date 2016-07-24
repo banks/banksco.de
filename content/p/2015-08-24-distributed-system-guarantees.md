@@ -1,5 +1,5 @@
 ---
-title: "Understanding Distributed System Guarantees"
+title: Understanding Distributed System Guarantees
 ---
 
 Tyler Treat just published [another](http://bravenewgeek.com/tag/distributed-systems/) great article about Distributed Systems and the [limited value of strong guarantees](http://bravenewgeek.com/what-you-want-is-what-you-dont-understanding-trade-offs-in-distributed-messaging/) they might claim to provide.

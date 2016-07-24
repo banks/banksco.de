@@ -1,6 +1,7 @@
 ---
-title: "Xeround: no to NoSQL"
+title: 'Xeround: no to NoSQL'
 ---
+
 **Just a quick note to point out an interesting developement in the 'distributed database' field. [Xeround](http://www.xeround.com) are developing a MySQL storage engine that has all the elasticity, redundancy and scalability of some of the popular NoSQL solutions with a 100% compatible MySQL interface.**
 
 This could be really interesting if it works as well as advertised since any MySQL app can migrate to it with *no code change*.

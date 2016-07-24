@@ -1,6 +1,7 @@
 ---
-title: "CoffeeScript: another language to not learn"
+title: 'CoffeeScript: another language to not learn'
 ---
+
 **My attention was drawn to [CoffeeScript](http://jashkenas.github.com/coffee-script/) recently. I really like it, I think the author has made some changes that *if* they were part of javascript proper would make it somewhat nicer to work with. But it is completely pointless.**
 
 I mean no disrespect - if it solves a problem for the author then I can't argue. All I can say is that I completely missed the point. It isn't even fundamentally changing the way javascript works, no original programming paradigm or domain-specifc problem solving tools.

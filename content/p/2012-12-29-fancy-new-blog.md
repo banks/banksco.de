@@ -1,6 +1,7 @@
 ---
 title: Fancy New Blog
 ---
+
 **Same poor content, new styling (and backend)**
 
 I made my blog a few years ago as a [way to learn Rails](http://banksco.de/p/on-the-bandwagon) and after a year in which I posted only two new articles of very low value, I got inspired to give it a revamp.

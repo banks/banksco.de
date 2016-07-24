@@ -1,6 +1,7 @@
 ---
 title: JS on the server?
 ---
+
 Server-side javascript is something that I have been dimly aware of for a while now. At first, I thought it was yet another pointless attempt to use technology in ways it wasn't designed to be used, but recently it's been starting to make a little more sense to me.
 
 I won't go into too much detail here because [ReadWriteWeb](http://www.readwriteweb.com) have [done it better](http://www.readwriteweb.com/archives/server-side_javascript_back_with_a_vengeance.php). Also of interest, Felix Geisendörfer (a former CakePHP contributor) also [explains why he's more interested in Node.js now](http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb).

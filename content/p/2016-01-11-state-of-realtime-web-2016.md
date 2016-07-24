@@ -1,5 +1,5 @@
 ---
-title: "The State of Real-Time Web in 2016"
+title: The State of Real-Time Web in 2016
 ---
 
 I've been working on infrastructure for real-time notifications for a high-traffic site on and off for a few years, and recently been contributing to [Centrifuge](https://github.com/centrifugal).

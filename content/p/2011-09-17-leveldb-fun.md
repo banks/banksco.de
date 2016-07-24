@@ -1,6 +1,7 @@
 ---
 title: LevelDB Fun
 ---
+
 **Google recenetly open-sourced [LevelDB](http://code.google.com/p/leveldb/) which is "a fast key-value storage library". I've used it as an excuse to play about in C++.**
 
 There is nothing new or exciting to report to the tech world here - just that I've enjoyed playing about in a language I've not worked much with in the past. 

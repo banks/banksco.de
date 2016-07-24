@@ -1,6 +1,7 @@
 ---
 title: A Change of Scenery
 ---
+
 **My wife Chloe and I are soon going to moving to pastures new. We have decided to escape city life and see how we fare in a more rural setting in Devon. That has meant me moving on to work for a different company too.**
 
 It was with some reluctance that I said goodbye to [Ents24.com](http://www.ents24.com) two weeks ago. It has been a great couple of years for me working there and I got on really well with all the staff.

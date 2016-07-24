@@ -1,6 +1,7 @@
 ---
 title: Why NoSQL is great and geek fights aren't
 ---
+
 **I've been reading a lot about the recent stream of RDBMs alternatives that are getting a lot of attention at the moment. I find the subject fascinating and many of the solutions and technologies coming out make me want to go and summon hundreds of EC2 instances just to distribute some random data over.**
 
 My 30 second NoSQL overview: relational databases can become unwieldy once you need to scale beyond the capacity of a single server. Some applications can easily take advantage of multiple read slaves but with enough write traffic things need to get more exotic. Enter [sharding](http://en.wikipedia.org/wiki/Shard_\(database_architecture\)). If you want to read more about sharding, go ahead. Suffice it to say that once your data is split over separate physical machines, a substantial portion of what makes relational databases and SQL great goes out the window. No more joins, aggregate queries etc. 

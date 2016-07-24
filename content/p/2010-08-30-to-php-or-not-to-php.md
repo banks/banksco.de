@@ -1,6 +1,7 @@
 ---
 title: To PHP or not to PHP?
 ---
+
 **I've recently run up against the limitations of PHP's OO features in many different projects. While there are some potential solutions, I'm in two minds about whether they are a good idea or not.**
 
 For example, languages like Ruby and JavaScript allow 'Monkey Patching' or modifying classes/object's methods at run time. While some complain that this can cause terrible code and bugs that are very hard to track down, it allows things like behaviors (i.e. mixins for multiple inheritance) which can be a very powerful way of keeping code modular. 

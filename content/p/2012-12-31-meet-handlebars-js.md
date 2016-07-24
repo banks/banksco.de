@@ -1,6 +1,7 @@
 ---
 title: Meet Handlebars.js
 ---
+
 **In [making this blog](http://banksco.de/p/fancy-new-blog.html) I ended up using [Yehuda Katz' Handlebars.js](http://handlebarsjs.com) for templating. It has some intersting features I'll introduce here, but arguably dilutes [Mustache's](http://mustache.github.com) basic philosophy somewhat.**
 
 I found Handlebars to be a powerful extension to Mustache but I want to note up-front that it quite possibly isn't the best option in every case. Certainly if you need implementations outside of Javascript it's not (yet) for you, however I'm also aware that the extra power added comes with a potential cost: you can certainly undo many of the benefits of separating logic and template.

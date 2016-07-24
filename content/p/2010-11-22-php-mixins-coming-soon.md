@@ -1,6 +1,7 @@
 ---
 title: PHP 'Mixins' Coming Soon!
 ---
+
 **I posted a while back about [PHP's lack of decent support for multiple inheritance](), and concluded that Mixin like behaviour just wasn't natural to PHP as it stands. PHP 5.4 looks like it will change that with the addition of traits.**
 
 Simas Toleikis [introduces traits](http://simas.posterous.com/new-to-php-54-traits) in a great blog post. I'm excited, it looks like it could solve many of the issues I bemoaned PHP as lacking.

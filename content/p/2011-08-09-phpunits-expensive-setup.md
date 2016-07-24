@@ -1,6 +1,7 @@
 ---
 title: PHPUnit's Expensive SetUp
 ---
+
 **I've been working a lot with [PHPUnit 3.5](https://github.com/sebastianbergmann/phpunit/) recently. It's good in many ways but it is not fast. That's understandable perhaps given the feature set but there is one apparently obvious oversight which totally ruins the experience.**
 
 The problem I'm talking about I've [reported as a possible bug](https://github.com/sebastianbergmann/phpunit/issues/261) and yet it has gotten zero attention in over two months. I'll describe it again here.

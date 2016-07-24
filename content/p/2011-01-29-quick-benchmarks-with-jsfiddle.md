@@ -1,6 +1,7 @@
 ---
 title: Quick benchmarks with jsFiddle
 ---
+
 **At work this week a colleague asked if anyone could think of an optimisation for extracting a rectangular subset of pixel data from an HTML 5 [CanvasPixelArray](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#canvaspixelarray). I tried a few things with [jsFiddle](http://www.jsfiddle.net).**
 
 My main idea was that rather than iterating through every pixel and comparing coordinates (`O(n)` running time), you could loop through rows of pixels and remove just the selected ones with `Array.slice()`.

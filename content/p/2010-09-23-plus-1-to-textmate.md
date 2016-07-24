@@ -1,6 +1,7 @@
 ---
-title: +1 to Textmate
+title: "+1 to Textmate"
 ---
+
 **I posted [a little while back](http://blog.banksdesigns.co.uk/post/the-era-of-komodo-edit) about my trialling of Komodo edit as an IDE. It's good, but just a couple of things bugged me enough that I thought I'd see if I could live with the major change that is switching to [TextMate](http://macromates.com/).**
 
 Now to be completely fair, most of my gripes with Komodo edit were minor and were more to do with what I'm used to than it being a bad product. Since starting a new job (more to come soon) I discovered a few really useful tools had been written for our codebase for the latest beta of Komodo Edit (v6) so I switched to that.

@@ -1,6 +1,7 @@
 ---
 title: Learning Common Lisp
 ---
+
 **I love to learn new programming languages. Common Lisp is a great language to learn just to broaden one's horizons.**
 
 It may not be particularly cool or popular right now and you may find the syntax ugly but there are so many ideas that really don't come up in other languages. You'll soon appeeciate why the syntax is like it is and why that is so powerful. 

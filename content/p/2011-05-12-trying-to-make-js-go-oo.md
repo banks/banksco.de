@@ -1,6 +1,7 @@
 ---
 title: Trying to make JS go OO
 ---
+
 **At work, we use a version of [Base.js by Dean Edwards](http://dean.edwards.name/weblog/2006/03/base/) to standardise object inheritance and make our JavaScript somewhat more Object Oriented. Today I came across a quirk.**
 
 Now the problem I found isn't with Base.js really - it's an inherent feature of JS's prototyping and object model, however it was made more confusing by Base.js apparently giving you 'class' like definition of objects. After discussing some unintuitive behaviour with [my colleagues](http://dt.deviantart.com) it became clear that this is basic JavaScript behaviour despite being somewhat confusing at first. 

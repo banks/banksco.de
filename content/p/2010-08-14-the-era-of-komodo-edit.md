@@ -1,6 +1,7 @@
 ---
 title: The Era of Komodo Edit
 ---
+
 I'm reconfiguring a whole bunch of things on my machine. In the process, I couldn't bear to install Aptana 1.5 again. I've been using it for a year or so since ZDE went over to Eclipse and became even more horrible to use.
 
 Aptana is also Eclipse based which doesn't fill me with Joy but 1.5 did have excellent PHP support. My love affair with it was not long lived though as the 2.0 release last year completely decimated everything that had made me move from ZDE by dropping Aptana's PHP plugin for PDT. I've also recently had a complete nightmare helping colleagues getting Aptana 1.5 to work on Ubuntu.

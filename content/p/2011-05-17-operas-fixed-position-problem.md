@@ -1,6 +1,7 @@
 ---
 title: Opera's fixed position problem
 ---
+
 **Opera has a bug with `node.offsetTop` when the node has a fixed position ancestor. That has been [know about for a while](http://www.greywyvern.com/code/opera/bugs/PositionFixedoffsetTop). I didn't think it would take me three separate days of pain to get a handle on.**
 
 It turns out that it's quite a lot more complex than that page linked above suggests. At work we have an old utility library called `Ruler.js` which does a lot of things relating to measuring element positions relative to all sorts of things. While trying to fix a JS positioning issue caused by this Opera bug I though I could simply correct it by compensating for Opera's extra scroll pixels for fixed position nodes in the offset hierarchy.

@@ -1,6 +1,7 @@
 ---
 title: jQuery 1.5 Beats Monster Callbacks Into Shape
 ---
+
 **This is a shameless re-blog of [Eric Hynds' article on jQuery deferreds](http://www.erichynds.com/jquery/using-deferreds-in-jquery/). It's a great read.**
 
 [jQuery 1.5](http://jquery.com/) was out yesterday and includes several changes as one might expect. Deferreds are a new concept for me although reading Eric's great article above reveals a powerful and elegant new paradigm for handling callbacks in jQuery.

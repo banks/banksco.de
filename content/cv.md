@@ -2,6 +2,7 @@
 title: Paul Banks - Software Engineer CV
 template: cv.mu
 ---
+
 ## Curriculum Vitae
 
 I'm a Software Engineer.

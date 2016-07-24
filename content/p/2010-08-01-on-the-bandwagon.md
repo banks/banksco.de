@@ -1,6 +1,7 @@
 ---
 title: On the bandwagon
 ---
+
 **I'm a PHP developer by profession but this blog is a bit of a departure for me - it's a [Ruby on Rails](http://rubyonrails.org/) app.**
 
 I could have used pretty much any open source blog package out there, but I wanted to have a go at producing something real that worked with rails. There are also a few features I didn't find elsewhere (mostly formatting related).

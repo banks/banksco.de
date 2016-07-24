@@ -1,6 +1,7 @@
 ---
-title: "PHP Gotcha: Strings are Arrays Too"
+title: 'PHP Gotcha: Strings are Arrays Too'
 ---
+
 **Actually the title is misleading - but they can at times *seem* like arrays. This just came up at work and although it is one of those things which seems obvious after, it highlights a potentially dangerous and error-prone design pattern.**
 
 Basically we had a function that looked essentially like this:

@@ -1,6 +1,7 @@
 ---
 title: Managing iPhone SDK versions and targeting
 ---
+
 **There are many subtleties when deploying apps with the iPhone SDK. One I have spent much time fiddling with in the past and actually got to the bottom of today is the difference between *Base SDK* and *Deployment Target*.**
 
 I spent an hour or so today jumping through the familiar hoops of getting some updates into our iPhone app at work. The latest updates involve dealing with background state transitions which requires accessing new API methods added in iOS 4.

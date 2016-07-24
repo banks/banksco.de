@@ -1,6 +1,7 @@
 ---
-title: "Google's AdSense/DFP PII Privacy Gotcha"
+title: Google's AdSense/DFP PII Privacy Gotcha
 ---
+
 **Google AdSense (and other advertising products) appear to have turned on a new detection system for violations of their <abbr title="Personally Identifiable Information">PII</abbr> policy. Here are a couple of easy steps to fall foul of it without meaning to.**
 
 ### What is a PII (Personally Identifiable Information) Violation?
