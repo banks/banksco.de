@@ -13,8 +13,8 @@
     "q": "0.8.x",
     "restify": "1.4.x",
     "rss": "0.0.4",
-    "uglify": "0.1.5",
-    "uglify-js": "^2.6.1",
+    "uglify": "0.1.x",
+    "uglify-js": "2.6.x",
     "uglifycss": "0.0.20",
     "underscore": "1.4.x",
     "yaml-front-matter": "1.0.x"
