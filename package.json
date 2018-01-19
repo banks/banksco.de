@@ -7,7 +7,7 @@
   "dependencies": {
     "handlebars": "1.0.x",
     "highlight": "0.2.x",
-    "js-yaml": "1.0.x",
+    "js-yaml": "3.10.x",
     "marked": "0.2.x",
     "moment": "1.7.2",
     "q": "0.8.x",
