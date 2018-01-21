@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/banksyw
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://banksco.de
+  * I am banksyw (https://keybase.io/banksyw) on keybase.
+  * I have a public key ASD34ru5nha4p16hYT9Ye62vPO3FM-d3r3Is6xmFLhhH5Ao
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101e6464bcacb5113667758041eed2069373f2d1b6f23ba614f93b1ff5b923f43af0a",
+            "host": "keybase.io",
+            "kid": "0120f7e2bbb99e16b8a75ea1613f587badaf3cedc533e777af722ceb19852e1847e40a",
+            "uid": "5d0c32b90d3bd2593b751a615c8fc219",
+            "username": "banksyw"
+        },
+        "service": {
+            "hostname": "banksco.de",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1480085286,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1480085209,
+        "hash": "b7822e8f83027df1bfaf743968774540e69fe466a420b2ea10124e21067b3f2ad2895875c8395ced9daa6eef81a39b21e247c2e25b3c7dae16ad82f060b5d2a2",
+        "seqno": 734736
+    },
+    "prev": "9e23c1053d614b666f8594c0e2e65757de360cc9af2d33514e1e34ba1859d96a",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg9+K7uZ4WuKdeoWE/WHutrzztxTPnd69yLOsZhS4YR+QKp3BheWxvYWTFAvF7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxZTY0NjRiY2FjYjUxMTM2Njc3NTgwNDFlZWQyMDY5MzczZjJkMWI2ZjIzYmE2MTRmOTNiMWZmNWI5MjNmNDNhZjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZjdlMmJiYjk5ZTE2YjhhNzVlYTE2MTNmNTg3YmFkYWYzY2VkYzUzM2U3NzdhZjcyMmNlYjE5ODUyZTE4NDdlNDBhIiwidWlkIjoiNWQwYzMyYjkwZDNiZDI1OTNiNzUxYTYxNWM4ZmMyMTkiLCJ1c2VybmFtZSI6ImJhbmtzeXcifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImJhbmtzY28uZGUiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xOCJ9LCJjdGltZSI6MTQ4MDA4NTI4NiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDgwMDg1MjA5LCJoYXNoIjoiYjc4MjJlOGY4MzAyN2RmMWJmYWY3NDM5Njg3NzQ1NDBlNjlmZTQ2NmE0MjBiMmVhMTAxMjRlMjEwNjdiM2YyYWQyODk1ODc1YzgzOTVjZWQ5ZGFhNmVlZjgxYTM5YjIxZTI0N2MyZTI1YjNjN2RhZTE2YWQ4MmYwNjBiNWQyYTIiLCJzZXFubyI6NzM0NzM2fSwicHJldiI6IjllMjNjMTA1M2Q2MTRiNjY2Zjg1OTRjMGUyZTY1NzU3ZGUzNjBjYzlhZjJkMzM1MTRlMWUzNGJhMTg1OWQ5NmEiLCJzZXFubyI6OCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEAzIqqm85s/Becy3ylLOpbNVanNSEe/XudVK4kHHU6NHfByxozKLCopLvdeoq0obnhO2T30pWJtcCom7EklkjMHqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQg+uLBSFGwg9bzD6Ui2NzRswgnA4ApJ7YkqiBTMWHDDw6jdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/banksyw
+
+==================================================================
